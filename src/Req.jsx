@@ -1,48 +1,69 @@
-import { useState, useEffect } from 'react';
-import style from './req.module.css';
-import { apiDragonBall } from './api/api';
+import { useEffect, useState } from "react";
+import { apiDB } from "./api/api";
+import { Card } from "./Card";
+import style from "./Req.module.css";
+import { Menu } from "./components/menu";
 
-export default function Req(){
-    const [data, setData] = useState([])
-    const[page, setPage] = useState("")
-    const [searchName , setSearchName] = useState("")
+import logoApi from "./assets/images/logo_dragonballapi.webp";
 
-    const[erro, setErro] = useState(false)
+export default function Req() {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState("");
 
-    useEffect(() => {
-        apiDragonBall.get(`/character/?page=${page}&name=${searchName}`).then((response) =>{
-            setData(response.data.results)
-        }).catch((error) =>{
-            if(error.response.status === 404){
-                setErro(true)
-            }
-            console.error(error)
-        })
-        
-    }, [page, searchName])
-    return(
-        <>
-         <section className={style.wrapPage}>
-         <h1 className={style.titleName}>Dragon Ball API</h1>
-         <input type="text" placeholder='Digite uma pagina (1/42)' value={page} onChange={(e) => setPage(e.target.value)} />
-         
- 
-         <input type="text" placeholder='Digite um nome' value={searchName} onChange={(e)=> setSearchName(e.target.value)} />
-         {erro && <p>página não encontrada</p>}
-         
-         <div className={style.wrapCards}>
- 
-         {data.map((item, index)=> {
- 
-             return(
-                 <div key={(index)}>
-                     <Card name={item.name} image={item.image}/>
-                     <img src={item.image} alt={item.name} />
-                 </div>
-             )
-         })}
-         </div>
-     </section>
-        </>
-     )
- }
+  const [erro, setErro] = useState(false);
+
+  useEffect(() => {
+    apiDB
+      .get(`/characters?page=${page}`)
+      .then((res) => {
+        setData(res.data.items);
+        console.log(res.data.items);
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 404) {
+          setErro(true);
+        }
+        console.log(error);
+      });
+  }, [page]);
+
+  return (
+    <>
+      <Menu option01="Voltar" option02="" />
+
+      <section className={style.wrapPage}>
+      
+        <div className={style.imageApi}>
+          <img src={logoApi} alt="logoApi" className={style.logoApi} />
+        </div>
+        <h1 className={style.titleApi}>The Dragon Ball API</h1>,
+        <div className={style.containerInput}>
+          <input
+            type="text"
+            placeholder="Digite uma pagina de 1 a 6"
+            value={page}
+            onChange={(e) => setPage(e.target.value)}
+          />
+          {erro && <p>Pagina não encontrada</p>}
+        </div>
+        <div className={style.wrapCards}>
+          {data.map((item, index) => {
+            return (
+              <div key={index}>
+                <Card
+                  name={item.name}
+                  image={item.image}
+                  ki={item.ki}
+                  maxKi={item.maxKi}
+                  race={item.race}
+                  gender={item.gender}
+                  affiliation={item.affiliation}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
+  );
+}
