@@ -12,12 +12,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/*",
     element: <App />,
   },
   {
     path: "/Req",
-    element: <Req/>,
+    element: <Req />,
   }
 ]);
 

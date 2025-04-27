@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { apiDB } from "./api/api";
-import { Card } from "./Card";
-import style from "./Req.module.css";
+import { apiDragonBall } from "./api/api";
+
+import { Card } from "./components/card";
 import { Menu } from "./components/menu";
 
-import logoApi from "./assets/images/logo_dragonballapi.webp";
+import style from "./Req.module.css";
+import menuStyle from "./components/menu.module.css";
+
+import logoApi from "./assets/logo.webp";
 
 export default function Req() {
   const [data, setData] = useState([]);
@@ -12,12 +15,10 @@ export default function Req() {
 
   const [erro, setErro] = useState(false);
 
-  useEffect(() => {
-    apiDB
-      .get(`/characters?page=${page}`)
-      .then((res) => {
-        setData(res.data.items);
-        console.log(res.data.items);
+  useEffect(() => { 
+    apiDragonBall.get(`/characters?page=${page}`).then((res) => {
+        setData(res.data.results);
+        console.log(res.data.results);
       })
       .catch((error) => {
         if (error.response && error.response.status === 404) {
@@ -27,23 +28,15 @@ export default function Req() {
       });
   }, [page]);
 
-  return (
+  return (  
     <>
-      <Menu option01="Voltar" option02="" />
+      <Menu option01={<a href="/*" className={menuStyle.navLink}>Início</a>}/>
 
       <section className={style.wrapPage}>
-      
-        <div className={style.imageApi}>
-          <img src={logoApi} alt="logoApi" className={style.logoApi} />
-        </div>
-        <h1 className={style.titleApi}>The Dragon Ball API</h1>,
+          <img src={logoApi} alt="logoApi" className={style.logoApi} height={"80px"} width={"auto"}/>
+        <h1 className={style.titleApi}>Dragon Ball API</h1>
         <div className={style.containerInput}>
-          <input
-            type="text"
-            placeholder="Digite uma pagina de 1 a 6"
-            value={page}
-            onChange={(e) => setPage(e.target.value)}
-          />
+          <input type="text" placeholder="Digite uma pagina de 1 a 6" value={page} onChange={(e) => setPage(e.target.value)}/>
           {erro && <p>Pagina não encontrada</p>}
         </div>
         <div className={style.wrapCards}>
