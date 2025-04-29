@@ -3,20 +3,18 @@
    width: auto;
    z-index: 2;
    transform: scale(1.1);
-   transition: all 600ms ease-in-out;
+   transition: all 400ms ease-in-out;
 }
 
 .imgCard:hover{
-   
    transform: scale(1.4);
- 
  }
 
 .cardsEstilo{
    width: 280px;
    display: flex;
    flex-direction: column;
-   background: rgb(60, 62, 68);
+   background: rgb(46, 50, 61);
    border-radius: 0.5rem;
    margin: 0.75rem;
    cursor: pointer;
@@ -27,7 +25,8 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color:rgba(255, 250, 250, 0.382);
+   background: #82663b;
+   background: linear-gradient(0deg,rgb(240, 163, 48) 0%, rgb(183, 105, 32) 100%);
    border-radius: 0.75rem;
 }
 .infoApi{

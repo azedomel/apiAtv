@@ -26,8 +26,16 @@
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 1px;
   font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(157, 65, 65, 0.917);
+  transition: all 300ms ease-in-out;
+  text-shadow: 2px 2px 4px rgba(196, 98, 12, 0.917);
 }
-
+.apiTitle:hover {
+  text-shadow:
+    0 0 8px rgba(64, 55, 6, 0.9),
+    0 0 12px rgba(255, 200, 0, 0.7),
+    0 0 16px rgba(255, 170, 0, 0.6);
+}
 .cardsApi{
 display: flex;
 align-items: center;
@@ -36,6 +44,17 @@ flex-direction: row;
 flex-wrap: wrap;
 gap: 3rem;
 padding-bottom: 3rem;
+}
+
+.cardsApi > * {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.614); /* alaranjado pastel */
+  transition: box-shadow 0.4s ease;
+  border-radius: 10px; /* opcional: bordas arredondadas para suavizar */
+}
+
+/* Efeito de brilho mais forte ao passar o mouse */
+.cardsApi > *:hover {
+  box-shadow: 0 0 25px rgba(255, 197, 88, 0.5), 0 0 40px rgba(255, 140, 0, 0.3);
 }
 
 .searchInput{

@@ -1,5 +1,6 @@
 .pageSection {
-    background-color: rgb(39, 43, 51);
+  background: #ffa51f;
+  background: linear-gradient(0deg,rgb(161, 97, 0) 0%, rgb(104, 51, 1) 100%);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,6 +38,24 @@
   text-align: center;
   padding: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.917);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.917);
+}
+.pageTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 0;
+  background-color: rgb(252, 174, 31);
+  box-shadow: 0 0 10px rgb(252, 174, 31), 0 0 20px rgb(252, 174, 31);
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.pageTitle:hover::after {
+  width: 100%;
 }
 
 .pageImage {
@@ -56,7 +75,7 @@
     flex-direction: column;
     border-radius: 1rem;
     padding: 4px;
-    background-color: rgba(22, 22, 22, 0.622);
+    background-color: rgba(249, 145, 55, 0.533);
     color: white;
     z-index: 2;
     position: relative;
@@ -67,13 +86,21 @@
     gap: 10vh;
     justify-content: center;
     align-items: center;
+    box-shadow:
+    0 0 10px rgba(161, 105, 0, 0.856),
+    0 0 20px rgba(255, 255, 255, 0.08),
+    0 0 40px rgba(255, 255, 255, 0.06);
+    transition: all 250ms ease-in-out;
+}
+.pageSlogan:hover{
+  transform: scale(1.01);
 }
 
 .pageButton {
-  background-color: #f0e4c4;
+  background-color: #ff9a0c;
   font-family: "Cascadia Code", sans-serif;
   border: none;
-  color: #623900;
+  color: #a33e00;
   font-weight: 500;
   font-size: 1rem;
   padding: 10px 30px;
@@ -88,10 +115,10 @@
   margin-bottom: 7vw;
 }
 .pageButton2 {
-  background-color: #f0e4c4;
+  background-color: #834006;
   font-family: "Cascadia Code", sans-serif;
   border: none;
-  color: #623900;
+  color: #fff07d;
   font-weight: 500;
   font-size: 1rem;
   padding: 10px 30px;
@@ -114,8 +141,28 @@
     flex-direction: column;
     width: 100%;
     margin: 2rem 0;
+    border-radius: 2rem;
+    border: 1rem solid rgba(219, 157, 50, 0.914);
+    box-shadow: 0 0 10px rgba(252, 174, 31, 0.5),
+              0 0 20px rgba(252, 174, 31, 0.4),
+              0 0 30px rgba(252, 174, 31, 0.3);
+  animation: neonPulse 2s infinite ease-in-out;
 }
 
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px rgba(252, 174, 31, 0.5),
+      0 0 20px rgba(252, 174, 31, 0.4),
+      0 0 30px rgba(252, 174, 31, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(252, 174, 31, 0.8),
+      0 0 40px rgba(252, 174, 31, 0.6),
+      0 0 60px rgba(252, 174, 31, 0.5);
+  }
+}
 .videoPlay iframe {
     width: 80%;
     max-width: 900px;
@@ -164,7 +211,10 @@ footer a:hover {
     }
     .pageTitle{
       font-size: 5rem;
-      top: 30%;
+      position: absolute;
+        transform: translate(-50%, -50%);
+        top: 30%;
+        margin-top: -10%;
   }
   
   .pageImage{
@@ -173,16 +223,17 @@ footer a:hover {
     border-radius: 200px;
     border-top-left-radius: 4rem;
     border-bottom-right-radius: 1rem;
-    padding-bottom: 10%;
+    padding-bottom: 8%;
     margin-bottom: 2vw;
   }
   
 .pageSlogan{
   position: relative;
   width: 36%;
-  margin-left: 56%;
+  margin-left: 53%;
   font-size: 1rem;
-  margin-top: -10%;
+  margin-top: -20%;
+  margin-bottom: 2rem;
  
 }
 
@@ -216,6 +267,8 @@ footer a:hover {
     }
 
     .pageTitle {
+      position: absolute;
+      transform: translate(-50%, -50%);
         font-size: 4rem;
         top: 20%;
         margin-top: -10%;
