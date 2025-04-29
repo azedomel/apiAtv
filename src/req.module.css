@@ -1,17 +1,79 @@
-.wrapPage{
-    padding-top: 1vh;
+.sectionApi{  
+  width: 100%;
+  height: auto;
+  background-color: rgb(39, 43, 51);
 }
 
-.wrapCards{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    padding: 10px;
+.apiImage{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+.logoApi{
+  width: 40vw;
+  height: auto;
+  margin-top: 90px;
 }
 
-.titleName{
-    width: 100%;
-    text-align: center;
+.apiTitle{
+  margin: 0;
+  margin-bottom: 2%;
+  align-items: center;
+  text-align: center;
+  color: rgb(251, 192, 45);
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  font-size: 3rem;
+}
+
+.cardsApi{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+flex-wrap: wrap;
+gap: 3rem;
+padding-bottom: 3rem;
+}
+
+.searchInput{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+input{
+  background-color: #ffffff;
+  font-family: "Cascadia Code", sans-serif;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+input:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.248);
+}
+
+@media(width > 600) and (width < 1666px) {
+  .apiImage{
+    width: 20vw;
+  }
+  .apiTitle{
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: rgb(252, 174, 31);
+      font-size: 5rem;
+
+  }
+  .cardsApi{
+      padding: 10%;
+      }
 }

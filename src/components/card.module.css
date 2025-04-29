@@ -1,19 +1,59 @@
-.apiSection{
-    background-attachment: fixed;
+.imgCard{
+   height: 250px;
+   width: auto;
+   z-index: 2;
+   transform: scale(1.1);
+   transition: all 600ms ease-in-out;
 }
+
+.imgCard:hover{
+   
+   transform: scale(1.4);
+ 
+ }
 
 .cardsEstilo{
-    background-color: red;
+   width: 280px;
+   display: flex;
+   flex-direction: column;
+   background: rgb(60, 62, 68);
+   border-radius: 0.5rem;
+   margin: 0.75rem;
+   cursor: pointer;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-.cardImg{
-    background-color: aliceblue;
+.imgCardApi{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color:rgba(255, 250, 250, 0.382);
+   border-radius: 0.75rem;
 }
-
 .infoApi{
-    background-color: aliceblue;
+   padding: 2%;
+   color: rgb(255, 255, 255);
+   display: flex;
+   flex-direction: column;
+   gap: 2%;
+}
+.title{
+font-family: "Poppins", sans-serif;
+font-weight: 700;
+color: rgb(255, 203, 114);
+font-size: 2rem;
+padding-bottom: 0.5rem;
+text-align: center;
 }
 
-.descTitle{
-    background-color: aliceblue;
+.titleDesc{
+   font-family: "Cascadia Code", sans-serif;
+   font-size: 20px;
+   color: rgb(228, 172, 15);
+}
+
+.desc{
+   font-size: 17px;
+   color: rgb(255, 255, 254);
+   font-weight: 700;
 }

@@ -1,13 +1,14 @@
 .navLink {
     padding: 10px;
-    color: #71cf76 !important;
+    color: #f8d14f !important;
     font-size: 15px;
     transition: all 0.3s ease;
+    font-family: "Cascadia Code", sans-serif;
 }
 
 .navLink:hover {
-    color: #1ab024 !important;
+    color: #c96800 !important;
     transform: translateY(-2px);
-    background-color: rgba(46, 125, 50, 0.1);
+    background-color: rgba(125, 103, 46, 0.1);
     border-radius: 4px;
 }

@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { apiDragonBall } from "./api/api";
-
 import { Card } from "./components/card";
-import { Menu } from "./components/menu";
-
 import style from "./Req.module.css";
+import { Menu } from "./components/menu";
 import menuStyle from "./components/menu.module.css";
-
 import logoApi from "./assets/logo.webp";
 
 export default function Req() {
@@ -15,10 +12,12 @@ export default function Req() {
 
   const [erro, setErro] = useState(false);
 
-  useEffect(() => { 
-    apiDragonBall.get(`/characters?page=${page}`).then((res) => {
-        setData(res.data.results);
-        console.log(res.data.results);
+  useEffect(() => {
+    apiDragonBall
+      .get(`/characters?page=${page}`)
+      .then((res) => {
+        setData(res.data.items);
+        console.log(res.data.items);
       })
       .catch((error) => {
         if (error.response && error.response.status === 404) {
@@ -28,18 +27,22 @@ export default function Req() {
       });
   }, [page]);
 
-  return (  
+  return (
     <>
       <Menu option01={<a href="/*" className={menuStyle.navLink}>Início</a>}/>
 
-      <section className={style.wrapPage}>
-          <img src={logoApi} alt="logoApi" className={style.logoApi} height={"80px"} width={"auto"}/>
-        <h1 className={style.titleApi}>Dragon Ball API</h1>
-        <div className={style.containerInput}>
-          <input type="text" placeholder="Digite uma pagina de 1 a 6" value={page} onChange={(e) => setPage(e.target.value)}/>
+      <section className={style.sectionApi}>
+      
+        <div className={style.apiImage}>
+          <img src={logoApi} alt="logoApi" className={style.logoApi} />
+        </div>
+        <h1 className={style.apiTitle}>The Dragon Ball API</h1>,
+        <div className={style.searchInput}>
+          <input type="Number" placeholder="Digite uma pagina de 1 a 6" value={page} onChange={(e) => setPage(e.target.value)}
+          />
           {erro && <p>Pagina não encontrada</p>}
         </div>
-        <div className={style.wrapCards}>
+        <div className={style.cardsApi}>
           {data.map((item, index) => {
             return (
               <div key={index}>
