@@ -8,7 +8,7 @@ import { Menu } from './components/menu';
 import menuStyle from './components/menu.module.css';
 import style from './App.module.css';
 import imagemInicial from './assets/cheelagif1.gif';
-import wallpaper from './assets/wallpaper.mp4';
+import wallpaper from './assets/wallpaper.gif';
 
 import Req from './Req';
 
@@ -20,9 +20,7 @@ import Req from './Req';
     <>
     <main>
     <section className={style.pageSection}>
-        <video autoPlay loop muted playsInline className={style.backgroundVideo}>
-            <source src={wallpaper} type="video/mp4"/>
-        </video>
+        <img  src={wallpaper} className={style.backgroundVideo}></img>
         <img className={style.pageImage} src={imagemInicial} alt="imagem principal da page"/>
         <h2 className={style.pageTitle}>Dragon Ball API</h2>
         
